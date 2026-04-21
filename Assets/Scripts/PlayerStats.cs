@@ -22,7 +22,7 @@ public class PlayerStats : MonoBehaviour
 
         if(currentHealth <= 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name); //restart the level
+            SceneManager.LoadScene("ReloadGame"); //restart the level
         }
     }
 

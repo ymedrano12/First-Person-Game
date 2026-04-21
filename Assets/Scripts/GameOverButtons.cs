@@ -1,10 +1,10 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MenuButtons : MonoBehaviour
+public class GameOverButtons : MonoBehaviour
 {
     public string levelToLoad = "LevelOne";
-    public void PlayGame()
+    public void ReloadGame()
     {
         SceneManager.LoadScene(levelToLoad);
     }
@@ -12,10 +12,5 @@ public class MenuButtons : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
-    }
-
-     public void ReloadGame()
-    {
-        SceneManager.LoadScene(levelToLoad);
     }
 }

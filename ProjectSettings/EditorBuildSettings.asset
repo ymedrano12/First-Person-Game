@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelTwo.unity
     guid: 34c7f7cb441534abdb9f051772c0dfa3
   - enabled: 1
+    path: Assets/Scenes/ReloadGame.unity
+    guid: 440958db4b1b1450fa182283294c5c4b
+  - enabled: 1
     path: Assets/Scenes/LevelThree.unity
     guid: 4aaf1b5cd29b24e298a24269f5b5188b
   m_configObjects:
