@@ -4,7 +4,8 @@ using UnityEngine;
 public class RayCastInteraction : MonoBehaviour
 {
     private GameObject mainCamera;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private int boxesHit = 0;
+    private int boxesNeeded = 5;
     void Start()
     {
        mainCamera = FindFirstObjectByType<Camera>().gameObject;
@@ -19,13 +20,19 @@ public class RayCastInteraction : MonoBehaviour
             if(Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hit))
             {
                 Debug.Log(hit.transform.name);
-                // if(hit.transform.gameObject.TryGetComponent<Rigidbody>(out Rigidbody rb))
-                // {
-                //     rb.AddForce(mainCamera.transform.forward * 1000f);
-                // }
+                  if(hit.transform.gameObject.TryGetComponent<Rigidbody>(out Rigidbody rb))
+                  {
+                    rb.AddForce(mainCamera.transform.forward * 1000f);
+                    boxesHit++;
+                  }
                 if(hit.transform.gameObject.TryGetComponent<DestructableObject>(out DestructableObject obj))
                 {
+                    boxesHit++;
                     obj.DestroyObject();
+                }
+                if(boxesHit >= boxesNeeded)
+                {
+                    FindFirstObjectByType<NewLevelTrigger>().NextLevel();
                 }
             }
         }

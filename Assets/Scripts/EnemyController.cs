@@ -5,9 +5,10 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     private float playerDistance;
-    [SerializeField] private float chaseRange = 5f, attackRange = 1f, speed = 2.5f;
+    [SerializeField] private float chaseRange = 3f, attackRange = 1f, speed = 2.0f;
     private GameObject player;
     private Vector3 idlePos = Vector3.zero;
+    public float damage;
     void Start()
     {
         player = GameObject.FindWithTag("Player");
@@ -22,6 +23,8 @@ public class EnemyController : MonoBehaviour
         if(playerDistance < attackRange)
         {
             Debug.Log("Attacking player");
+            Debug.Log("Enemy trigger entered");
+            FindFirstObjectByType<PlayerStats>().TakeDamage(5f);
         }
         else if (playerDistance < chaseRange)
         {
